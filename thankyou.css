@@ -1,0 +1,68 @@
+/* Thank You Page Specific Styles */
+
+/* Container for centering text and image */
+.thankyou-container {
+  width: 60%;
+  /* Adjust width of container to be smaller */
+  max-width: 600px;
+  /* Smaller max-width */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+  /* Full viewport height for vertical centering */
+}
+
+.cover-image {
+  margin-bottom: 20px;
+  /* Reduced space between the image and text */
+}
+
+.cover-image img {
+  width: 50%;
+  /* Smaller image */
+  height: auto;
+  object-fit: cover;
+  /* Maintains aspect ratio */
+  margin: 0 auto;
+  /* Center the image horizontally */
+}
+
+.thankyou-text {
+  padding: 10px;
+}
+
+h1 {
+  font-size: 1.5em;
+  /* Smaller title size */
+  color: #0d47a1;
+}
+
+p {
+  font-size: 1em;
+  /* Smaller paragraph text */
+  margin-top: 10px;
+  color: #0d47a1;
+}
+
+a.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  /* Reduced space for button */
+  padding: 10px 20px;
+  /* Smaller button size */
+  font-size: 1em;
+  /* Smaller font for the button */
+  text-decoration: none;
+  color: #fff;
+  background-color: #0d47a1;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+}
+
+a.back-button:hover {
+  background-color: #2d8ff0;
+}
