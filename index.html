@@ -1,155 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>Ordering Portal...</title>
-    <link rel="stylesheet" href="general.css"/>
-    <link rel="stylesheet" href="form.css"/>
-    <link rel="stylesheet" href="mobile.css"/>
-    <link rel="stylesheet" href="countryselect.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"
-    />
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUT3eUyJj4huaLXZrqQnB3XrFSDvwf80Y&libraries=places" async defer></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Poppins&family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="script.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snap Scrolling Sections</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="form.css">
+  <link rel="stylesheet" href="borders.css">
+  <link rel="stylesheet" href="selector.css">
 
-  <body>
-    <script>
-      //FEATURE NOT WORKING
-      //google maps auto compelete
-      // document.addEventListener("DOMContentLoaded", function() {
-      //   function initAutocomplete() {
-      //     const addressInput = document.getElementById("shippingAddressInput");
-      //     if (addressInput) {
-      //       new google.maps.places.Autocomplete(addressInput);
-      //     }
-      //   }
+  <script src="script.js"></script>
 
-      //   // Check if Google Maps is loaded before initializing
-      //   if (typeof google !== "undefined" && google.maps && google.maps.places) {
-      //     initAutocomplete();
-      //   } else {
-      //     // Retry until Google Maps is loaded
-      //     const interval = setInterval(() => {
-      //       if (typeof google !== "undefined" && google.maps && google.maps.places) {
-      //         initAutocomplete();
-      //         clearInterval(interval);
-      //       }
-      //     }, 100);
-      //   }
-      // });
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Poppins&family=Space+Grotesk:wght@300..700&display=swap"
+    rel="stylesheet" />
+</head>
 
-      //send button delay
-      window.addEventListener("DOMContentLoaded", function () {
-        const yourForm = document.getElementById("myForm");
-        const submitButton = document.getElementById("submitButton");
+<body>
+  <script>
 
-        yourForm.addEventListener("submit", function (e) {
-          e.preventDefault();
+    //send button delay
+    window.addEventListener("DOMContentLoaded", function () {
+      const yourForm = document.getElementById("myForm");
+      const submitButton = document.getElementById("submitButton");
 
-          // Change button text and disable it
-          submitButton.textContent = "Sending...";
-          submitButton.disabled = true;
+      yourForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-          const data = new FormData(yourForm);
-          const action = e.target.action;
+        // Change button text and disable it
+        submitButton.textContent = "Sending...";
+        submitButton.disabled = true;
 
-          fetch(action, {
-            method: "POST",
-            body: data,
+        const data = new FormData(yourForm);
+        const action = e.target.action;
+
+        fetch(action, {
+          method: "POST",
+          body: data,
+        })
+          .then(() => {
+            window.location.replace("thankyou.html");
           })
-            .then(() => {
-              window.location.replace("thankyou.html");
-            })
-            .catch(() => {
-              // Handle the error (e.g., show an error message)
-              submitButton.textContent = "Send";
-              submitButton.disabled = false;
-            });
-        });
+          .catch(() => {
+            // Handle the error (e.g., show an error message)
+            submitButton.textContent = "Send";
+            submitButton.disabled = false;
+          });
       });
-    </script>
+    });
+  </script>
+  <div class="top-right-image">
+    <img src="topblob.svg" alt="Top Right Image" />
+  </div>
+  <div class="bottom-left-image">
+    <img src="bottomblob.svg" alt="Bottom Left Image" />
+  </div>
 
-    <div class="top-right-image">
-      <img src="topblob.svg" alt="Top Right Image" />
+  <section class="section section1">
+    <div class="content">
+      <div class="main-title">FLØYEN</div>
+      <div class="main-subtitle">BY PILAR SANCHEZ YUN</div>
     </div>
+    </div>
+  </section>
 
-    <div class="container">
-      <div class="title-container">
-        <div class="title">"FLØYEN" BY PILAR SANCHEZ YUN</div>
-        <div class="subtitle">
-          <p>
-            $$$$ (DKK/EURO) + shipping.
-            <br />xxpp. xxlb pages. xxxlb cover. <br />more descriptive text
-            about the photobook goes right here, below the page numbers and
-            paper weight.
-          </p>
-        </div>
-      </div>
+  <section class="section section2">
+    <div class="content">
       <div class="image-container">
-        <img src="cover2.png" alt="Book Cover" />
-        <img src="cover2.png" alt="Book Cover 2" />
+        <img src="cover2.png" alt="Book Cover 1" class="cover-image" />
+        <img src="cover2.png" alt="Book Cover 2" class="cover-image" />
       </div>
+      <div class="subtitle">
+        xxpp. xxlb pages. xxxlb cover.
+        <br>$$$$ (dkk/euro) + shipping.
+      </div>
+    </div>
+  </section>
 
-      <form
-        method="POST"
+  <section class="section section3">
+    <div class="form-container">
+      <form method="POST"
         action="https://script.google.com/macros/s/AKfycbzf1HzLtv0eQOHrW9OjP-R0ATYokBj605M9145iW9W4aY4Y8GrOQ9lYJKc10SppPVAf/exec"
-        id="myForm"
-        class="floating-form"
-      >
-        <label for="Name">name:</label>
-        <input
-          name="Name"
-          type="text"
-          placeholder="full name"
-          required
-          aria-label="Name"
-        />
+        id="myForm" class="floating-form">
 
-        <label for="Email">e-mail:</label
-        ><input
-          name="Email"
-          type="email"
-          placeholder="e-mail"
-          required
-          aria-label="Email"
-        />
+        <label for="Name">name:</label>
+        <input name="Name" type="text" placeholder="full name" required aria-label="Name" />
+
+        <label for="Email">e-mail:</label>
+        <input name="Email" type="email" placeholder="e-mail" required aria-label="Email" />
 
         <label for="PhoneNumber">phone number:</label>
-        <input
-          style="margin-bottom: 10px"
-          name="PhoneNumber"
-          id="PhoneNumber"
-          type="tel"
-          aria-label="Phone Number"
-          placeholder="phone number"
-        />
+        <input name="PhoneNumber" id="PhoneNumber" type="tel" placeholder="phone number" minlength="10" required
+          aria-label="Phone Number" />
 
         <label for="PaymentType">are you located in denmark?</label>
-        <select
-          name="PaymentType"
-          id="PaymentType"
-          required
-          onchange="togglePaymentField()"
-          aria-label="Payment Type"
-        >
-          <option value="" disabled selected hidden>
-            are you located in denmark?
-          </option>
+        <select name="PaymentType" id="PaymentType" required aria-label="Payment Type">
+          <option value="" disabled selected hidden>are you located in denmark?</option>
           <option value="yes">yes, i am located in denmark.</option>
           <option value="no">no, i am located outside of denmark.</option>
         </select>
@@ -160,61 +112,38 @@
 
         <div id="shippingAddressField">
           <label for="ShippingAddress">shipping address:</label>
-          <input
-            name="Address"
-            type="text"
-            id="shippingAddressInput"
-            placeholder="enter your address..."
-            aria-label="Shipping Address"
-          />
+          <input name="Address" type="text" id="shippingAddressInput" placeholder="enter your address" required
+            aria-label="Shipping Address" />
         </div>
 
         <label for="Note">note:</label>
-        <textarea
-          name="Note"
-          id="Note"
-          placeholder="add a note... (optional)"
-          aria-label="Note"
-        ></textarea>
+        <textarea name="Note" id="Note" placeholder="add a note..." aria-label="Note"></textarea>
 
-        <button type="submit" id="submitButton">send</button>
-
+        <button type="submit">send</button>
+      </form>
     </div>
+  </section>
 
-    <div class="bottom-left-image">
-      <img src="bottomblob.svg" alt="Bottom Left Image" />
+  <section class="section section4">
+    <div class="content">
+      <div class="title">PROJECT TYPE</div>
+      <div class="subtitle">
+        Description or content about the project type.
+      </div>
     </div>
-    <script>
-      // Initialize intl-tel-input
-      document.addEventListener("DOMContentLoaded", function () {
-        var phoneNumberInput = document.getElementById("PhoneNumber");
-        var iti = window.intlTelInput(phoneNumberInput, {
-          separateDialCode: true,
-          preferredCountries: ["dk", "es"],
-          utilsScript:
-            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-        });
+  </section>
+  <script>
+    // Initialize intl-tel-input
+    document.addEventListener("DOMContentLoaded", function () {
+      var phoneNumberInput = document.getElementById("PhoneNumber");
+      var iti = window.intlTelInput(phoneNumberInput, {
+        separateDialCode: true,
+        preferredCountries: ["dk", "es"],
+        utilsScript:
+          "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
       });
+    });
+  </script>
+</body>
 
-      //FEATURE NOT WORKING
-      // function initAutocomplete() {
-      //   const shippingAddressInput = document.getElementById("shippingAddressInput");
-      //   if (shippingAddressInput) {
-      //     new google.maps.places.Autocomplete(shippingAddressInput);
-      //   }
-      // }
-
-      // // Check if Google Maps is loaded before initializing autocomplete
-      // document.addEventListener("DOMContentLoaded", function() {
-      //   // Retry loading initAutocomplete until Google Maps is available
-      //   const interval = setInterval(() => {
-      //     if (typeof google !== "undefined" && google.maps && google.maps.places) {
-      //       initAutocomplete();
-      //       clearInterval(interval); // Stop checking once loaded
-      //     }
-      //   }, 100); // Check every 100ms
-      // });
-    </script>
-
-  </body>
 </html>
