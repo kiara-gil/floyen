@@ -1,13 +1,10 @@
-/* General Form Styles */
-form {
-  background-color: #d4e7f2;
-  padding: 20px;
-  border-radius: 5px;
-  width: 75%;
-  max-width: 500px;
-  min-width: 300px;
-  /* margin-left: 20px; */
-  /*turn off for vert*/
+/* Form Container */
+.content.form-container {
+  display: flex;
+}
+
+label {
+  display: none;
 }
 
 ::placeholder {
@@ -15,65 +12,9 @@ form {
   color: #5186c2;
 }
 
-label {
-  font-size: 15px;
-  font-weight: bold;
-  display: none;
-  margin-bottom: .8vw;
-  color: #0d47a1;
-  text-align: center;
-}
-
-input,
-select,
-textarea {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 2px solid #0d47a1;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: #f4f6f5;
-  color: #0d47a1;
-  /*typed*/
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  border: 2px solid #2d8ff0;
-  /* Blue color same as send button background */
-  /* Optional: change background color when focused */
-  outline: none;
-  /* Remove default outline */
-  /* Thicker border */
-}
-
 select:invalid {
   color: #5186c2;
 }
-
-option {
-  font-family: 'Poppins', sans-serif;
-  color: #555;
-  /*yes/no*/
-  font-size: 15px;
-}
-
-#formNote {
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  color: #0d47a1;
-  font-style: italic;
-  font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-/* Payment Dropdown Styles */
 
 select option {
   font-family: 'Poppins', sans-serif;
@@ -81,29 +22,35 @@ select option {
 
 }
 
-/* Floating Form Styles */
+#formNote {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 .floating-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 80%;
   padding: 20px;
-  border-radius: 50px;
   background-color: transparent;
   max-width: 500px;
-  position: relative;
 }
 
 .floating-form input,
 .floating-form select,
 .floating-form textarea {
   width: 100% !important;
-  padding: 20px 20px;
+  padding: 18px 20px;
   border-radius: 25px;
   background-color: transparent;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   font-size: 15px;
+  border: 2px solid #0d47a1;
   margin-bottom: 15px;
   box-sizing: border-box;
+  color: #0d47a1; /*typed */
 }
 
 .floating-form button {
@@ -111,34 +58,33 @@ select option {
   background-color: #0d47a1;
   border-radius: 25px;
   margin: 20px 0;
-  padding: 18px 20px;
+  padding: 15px 20px;
   color: white;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
   font-size: 15px;
   width: 100%;
-  /* font-weight: bold; */
-}
+} 
 
 .floating-form button:hover {
   background-color: #2d8ff0;
 
 }
 
-#shippingAddressInput {
-  font-family: 'Poppins', sans-serif;
-  width: 100% !important;
-  padding: 20px 20px;
-  border-radius: 25px;
-  background-color: transparent;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  font-size: 15px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
+input:focus,
+textarea:focus,
+select:focus {
+  border: 2px solid #2d8ff0;
+  outline: none;
 }
 
-#shippingAddressField {
-  width: 100% !important;
-  box-sizing: border-box;
+@media (max-width: 600px) {
+
+  .floating-form {
+    width: 90%;
+    padding: 0;
+    max-width: 350px;
+  }
+
 }

@@ -1,0 +1,72 @@
+/* intl-tel-input Styles */
+.iti {
+  width: 100%;
+}
+
+.iti__flag-container {
+  border-radius: 25px;
+  overflow: visible;
+}
+
+.iti__selected-flag {
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.iti__country-list {
+  border-radius: 0 !important;
+  width: 250px !important;
+  /* Set a fixed width for the dropdown */
+  max-width: none !important;
+  /* Remove any max-width limit */
+  overflow-x: hidden !important;
+  /* Hide horizontal overflow */
+  overflow-y: auto !important;
+  /* Allow vertical scrolling */
+  white-space: nowrap;
+  /* Prevent the text from wrapping, forcing the content to fit horizontally */
+
+}
+
+.iti__country {
+  border-radius: 0 !important;
+}
+
+.iti__flag-image {
+  border-radius: 4px;
+}
+
+.iti__selected-dial-code {
+  color: #555;
+  font-size: 13px;
+}
+
+.iti__tel-input input {
+  background-color: #ffffff;
+  color: #555;
+  border: 1px solid #90caf9;
+  border-radius: 25px;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.iti__tel-input input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.iti.iti--allow-dropdown.iti--separate-dial-code {
+  margin-bottom: 10px;
+}
+
+.iti__country {
+  background-color: #e1f5fe !important;
+  color: #555 !important;
+}
+
+.iti__country:hover,
+.iti__country.iti__country--active {
+  background-color: #1565c0 !important;
+  color: white !important;
+
+}
