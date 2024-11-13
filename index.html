@@ -17,9 +17,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Poppins&family=Space+Grotesk:wght@300..700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Poppins&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
@@ -55,6 +53,7 @@
       });
     });
   </script>
+  
   <div class="top-right-image">
     <img src="topblob.svg" alt="Top Right Image" />
   </div>
@@ -84,42 +83,83 @@
   </section>
 
   <section class="section section3">
-    <div class="form-container">
-      <form method="POST"
-        action="https://script.google.com/macros/s/AKfycbzf1HzLtv0eQOHrW9OjP-R0ATYokBj605M9145iW9W4aY4Y8GrOQ9lYJKc10SppPVAf/exec"
-        id="myForm" class="floating-form">
+    <div class="subtitle">
+      Instructions and information on filling out the form goes here.
+    </div>
+    <div class="content form-container">
+        <form
+          method="POST"
+          action="https://script.google.com/macros/s/AKfycbzf1HzLtv0eQOHrW9OjP-R0ATYokBj605M9145iW9W4aY4Y8GrOQ9lYJKc10SppPVAf/exec"
+          id="myForm"
+          class="floating-form"
+        >
+          <label for="Name">name:</label>
+          <input
+            name="Name"
+            type="text"
+            placeholder="full name"
+            required
+            aria-label="Name"
+          />
 
-        <label for="Name">name:</label>
-        <input name="Name" type="text" placeholder="full name" required aria-label="Name" />
+          <label for="Email">e-mail:</label
+          ><input
+            name="Email"
+            type="email"
+            placeholder="e-mail"
+            required
+            aria-label="Email"
+          />
 
-        <label for="Email">e-mail:</label>
-        <input name="Email" type="email" placeholder="e-mail" required aria-label="Email" />
+          <label for="PhoneNumber">phone number:</label>
+          <input
+            style="margin-bottom: 10px"
+            name="PhoneNumber"
+            id="PhoneNumber"
+            type="tel"
+            aria-label="Phone Number"
+            placeholder="phone number"
+          />
 
-        <label for="PhoneNumber">phone number:</label>
-        <input name="PhoneNumber" id="PhoneNumber" type="tel" placeholder="phone number" minlength="10" required
-          aria-label="Phone Number" />
+          <label for="PaymentType">are you located in denmark?</label>
+          <select
+            name="PaymentType"
+            id="PaymentType"
+            required
+            onchange="togglePaymentField()"
+            aria-label="Payment Type"
+          >
+            <option value="" disabled selected hidden>
+              are you located in denmark?
+            </option>
+            <option value="yes">yes, i am located in denmark.</option>
+            <option value="no">no, i am located outside of denmark.</option>
+          </select>
 
-        <label for="PaymentType">are you located in denmark?</label>
-        <select name="PaymentType" id="PaymentType" required aria-label="Payment Type">
-          <option value="" disabled selected hidden>are you located in denmark?</option>
-          <option value="yes">yes, i am located in denmark.</option>
-          <option value="no">no, i am located outside of denmark.</option>
-        </select>
+          <div id="paymentField" style="display: none">
+            <div id="formNote">The shipping cost will be BLANK.</div>
+          </div>
 
-        <div id="paymentField" style="display: none">
-          <div id="formNote">The shipping cost will be BLANK.</div>
-        </div>
+          <div id="shippingAddressField">
+            <label for="ShippingAddress">shipping address:</label>
+            <input
+              name="Address"
+              type="text"
+              id="shippingAddressInput"
+              placeholder="enter your address..."
+              aria-label="Shipping Address"
+            />
+          </div>
 
-        <div id="shippingAddressField">
-          <label for="ShippingAddress">shipping address:</label>
-          <input name="Address" type="text" id="shippingAddressInput" placeholder="enter your address" required
-            aria-label="Shipping Address" />
-        </div>
+          <label for="Note">note:</label>
+          <textarea
+            name="Note"
+            id="Note"
+            placeholder="add a note... (optional)"
+            aria-label="Note"
+          ></textarea>
 
-        <label for="Note">note:</label>
-        <textarea name="Note" id="Note" placeholder="add a note..." aria-label="Note"></textarea>
-
-        <button type="submit">send</button>
+          <button type="submit" id="submitButton">send</button>
       </form>
     </div>
   </section>

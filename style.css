@@ -1,11 +1,14 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 html,
 body {
+  color: #0d47a1;
+  font-family: 'Poppins', sans-serif;
+  font-optical-sizing: auto;
   height: 100%;
   scroll-behavior: smooth;
   overflow: hidden;
@@ -18,9 +21,6 @@ body {
   scroll-snap-type: y mandatory;
   /* Enables snapping on the y-axis */
   overflow-y: auto;
-  color: #0d47a1;
-  font-family: 'Poppins', sans-serif;
-  font-optical-sizing: auto;
   /* Allows scrolling */
 }
 
@@ -28,6 +28,8 @@ body {
   width: 100%;
   /* max-width: 80%; */
   /* Max width to avoid text stretching too far on wide screens */
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -43,18 +45,14 @@ body {
 
 .main-title {
   font-weight: bold;
-  font-size: max(10vw, 15px);
-  /* Scalable font size based on the viewport width */
-  /* color: #0d47a1; */
+  font-size: max(8vw, 15px);
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
 }
 
 .main-subtitle {
-  /* Slightly smaller than the main message */
-  /* color: white; */
-  font-size: max(2vw, 13px);
+  font-size: max(2vw, 12px);
   margin-top: 20px;
   line-height: 1.4;
   font-weight: normal;
@@ -69,11 +67,17 @@ body {
 }
 
 .subtitle {
-  /* Slightly smaller than the main message */
-  /* color: white; */
   font-size: max(1.2vw, 12px);
-  /* margin-top: 10px; */
   font-weight: normal;
+}
+
+.section3 .subtitle {
+  padding: 2vw 0;
+  
+}
+
+.section2 .subtitle {
+  font-size: max(.8vw, 12px);
 }
 
 .section2 {
@@ -112,6 +116,14 @@ body {
     font-size: max(2vw, 15px);
   }
 
+  
+  .section3 .subtitle {
+    width: 50%;
+    text-align: center;
+    font-size: max(2vw, 13px);
+    padding: 4vw 0;
+  }
+  
   .image-container {
     flex-direction: row;
     /* Stack the images vertically on smaller screens */
