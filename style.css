@@ -108,6 +108,10 @@ body {
 
 @media (max-width: 600px) {
 
+  .section.section1 {
+    min-height: 90vh;
+  }
+
   .main-title {
     font-size: max(15vw, 15px);
   }
