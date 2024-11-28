@@ -68,6 +68,7 @@
 @media (max-width: 768px) {
   #section2 .section-content {
     flex-direction: column;
+    padding: 0 1.4rem;
     align-items: center;
     gap: 1.3rem;
   }
@@ -87,7 +88,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: .8rem;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -99,7 +100,7 @@
   #section2 .right-content {
     width: 100%;
     gap: 1rem;
-    text-align: justify;
+    text-align: left;
   }
 
   #section2 .section-title {
