@@ -166,7 +166,8 @@
       } else if (selectedOption === "europe") {
         formNote.textContent = "The shipping cost will be 6,5 EUROS and it will be delivered within 5-10 working days.";
       } else if (selectedOption === "outside") {
-        formNote.textContent = "At this time, FLØYEN is only available in Europe.";
+        formNote.innerHTML = `At this time, FLØYEN is only available in Europe. If you are in the UK, please order via 
+        <a href="https://008imprints.co.uk/product/floyen/" target="_blank" rel="noopener noreferrer">0.08 Imprints</a>.`;
       }
 
       // Make the address field required for all other options (except Copenhagen)
