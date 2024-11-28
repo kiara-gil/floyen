@@ -1,0 +1,125 @@
+#section5 .section-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+#section5 .left-content {
+    width: 53%;
+    /* Text content occupies 60% of the width */
+    padding-right: 20px;
+    /* Space between text and image */
+    text-align: justify;
+}
+
+#section5 .right-content {
+    width: 40%;
+    /* Image content occupies 35% of the width */
+    display: flex;
+    justify-content: center;
+}
+
+#section5 .large-image {
+    width: 100%;
+    /* Ensures the image fills the container */
+    max-width: 500px;
+    /* Optional: limit the size of the image */
+    border-radius: 10px;
+    /* Optional: rounded corners for the image */
+}
+
+#section5 .section-title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: bold;
+    /* Dynamically sized title */
+    margin-bottom: 20px;
+}
+
+#section5 .section-body {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    /* Dynamically sized body text */
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Style the thank-you button */
+#section5 .thank-you-button {
+    display: inline-block;
+    /* Inline-block for proper dimensions */
+    margin: 20px auto;
+    /* Add margin for spacing and center alignment */
+    padding: 10px 20px;
+    /* Padding for clickable size */
+    font-family: 'Poppins', sans-serif;
+    /* Match your current font style */
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    /* Responsive font size */
+    color: #fff;
+    /* Button text color */
+    background-color: #0d47a1;
+    /* Blue button background */
+    border: none;
+    /* Remove default border */
+    border-radius: 8px;
+    /* Rounded edges */
+    text-align: center;
+    /* Center text inside the button */
+    text-decoration: none;
+    /* Remove underline if it's a link */
+    cursor: pointer;
+    /* Change cursor to pointer */
+    transition: background-color 0.3s ease;
+    /* Smooth hover effect */
+}
+
+/* Button hover effect */
+#section5 .thank-you-button:hover {
+    background-color: #2d8ff0;
+    /* Lighter blue on hover */
+}
+
+
+@media (max-width: 768px) {
+
+    #section5 .section-content {
+        flex-direction: column;
+        margin-bottom: 15vh;
+        /* overflow-y: scroll; */
+    }
+
+    #section5 .left-content {
+        width: 100%;
+        padding-right: 0;
+        text-align: justify;
+    }
+
+    #section5 .right-content {
+        width: 100%;
+        /* Image content occupies 35% of the width */
+        display: flex;
+        justify-content: center;
+    }
+
+    #section5 .large-image {
+        width: 70%;
+        /* Ensures the image fills the container */
+        max-width: 500px;
+        /* Optional: limit the size of the image */
+        border-radius: 10px;
+        /* Optional: rounded corners for the image */
+    }
+
+    #section5 .section-title {
+        font-size: clamp(2rem, 2.4vw, 3rem);
+        text-align: left;
+    }
+
+
+    #section5 .section-body {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        width: 100%;
+    }
+
+}

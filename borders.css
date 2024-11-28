@@ -1,0 +1,37 @@
+/* Fixed top-right image */
+.top-right-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  /* Ensure it stays behind other content */
+}
+
+.top-right-image img {
+  width: 46vw;
+  height: auto;
+  display: block;
+}
+
+/* Fixed bottom-left image */
+.bottom-left-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  /* Ensure it stays behind other content */
+}
+
+.bottom-left-image img {
+  width: 46vw;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+
+  .top-right-image img,
+  .bottom-left-image img {
+    width: 90vw;
+  }
+}

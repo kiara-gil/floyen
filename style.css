@@ -1,0 +1,158 @@
+/* General reset */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    color: #0d47a1;
+    font-family: 'Poppins', Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #d4e7f2;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0d47a1;
+    border-radius: 10px;
+}
+
+.snap-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.section {
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+    /* Default snapping behavior */
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+}
+
+.section-content {
+    text-align: center;
+    padding: 2rem;
+    /* Add padding to avoid text getting cut off */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+    width: 100%;
+    max-width: 1200px;
+    overflow-x: hidden;
+
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "League Spartan", sans-serif;
+    font-weight: bold;
+}
+
+.section-body {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: #123456;
+}
+
+
+#section1 .section-title {
+    font-size: clamp(4.6rem, 10vw, 9rem);
+    /* Already using clamp smallest - size - largest */
+}
+
+#section1 .section-body {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+/* Contact Info Section */
+.contact-info {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    color: #406db6;
+    /* Initial text color */
+    text-align: right;
+    padding: 40px;
+    font-size: clamp(.3rem, 2vw, 1.2rem);
+    /* Ensure it stays on top of other content */
+}
+
+.contact-info p {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+
+
+    /* Show contact info only inside the first section */
+    #section1 .contact-info {
+
+        position: absolute;
+        display: block;
+        /* Make the contact info visible within section1 */
+        font-size: clamp(.85rem, 3vw, 3.5rem);
+        padding: 0 2.5vh 40vw 0;
+    }
+
+    .tall {
+        height: auto;
+        scroll-snap-align: start !important;
+        scroll-snap-margin-bottom: 35vh;
+        /* Adds extra space at the bottom */
+    }
+
+    .section-content {
+        padding: 0 2rem;
+    }
+
+    #section1 .section-content {
+        padding-bottom: 25vh;
+    }
+
+    #section1 .section-title {
+        font-size: clamp(4.6rem, 6vw, 7rem);
+        margin-bottom: 0.2rem;
+        /* Add a closer margin below the title */
+    }
+
+    #section1 .section-body {
+        font-size: clamp(1.2rem, 2vw, 1.8rem);
+        /* Slightly reduced font size */
+        margin-top: 0.3rem;
+        /* Minimize the spacing above the body */
+    }
+
+}

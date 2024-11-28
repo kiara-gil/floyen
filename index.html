@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snap Scrolling Webpage</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="descrip.css">
+  <link rel="stylesheet" href="form.css">
+  <link rel="stylesheet" href="borders.css">
+  <link rel="stylesheet" href="selector.css">
+  <link rel="stylesheet" href="lightbox.css">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Poppins&family=Space+Grotesk:wght@300..700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="top-right-image">
+    <img src="topblob.svg" alt="Top Right Image" />
+  </div>
+  <div class="bottom-left-image">
+    <img src="bottomblob.svg" alt="Bottom Left Image" />
+  </div>
+  <div class="snap-container">
+    <div id="section1" class="section">
+      <div class="section-content">
+        <h1 class="section-title">FLØYEN</h1>
+        <p class="section-body">by Pilar Sánchez Yun</p>
+        <div class="contact-info">
+          <p>instragram: @pilarsayu </br> e-mail: pilarsayu@gmail.com</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Section 2: Gallery or Images -->
+    <section id="section2" class="section tall">
+      <div class="section-content">
+        <div class="left-content">
+          <img src="mockup1.png" alt="Large Image" class="large-image">
+          <div class="small-images">
+            <a href="#" class="lightbox-trigger">
+              <img src="IMG_4011.jpg" alt="Small Image 1" class="small-image">
+            </a>
+            <a href="#" class="lightbox-trigger">
+              <img src="IMG_4013.jpg" alt="Small Image 2" class="small-image">
+            </a>
+            <a href="#" class="lightbox-trigger">
+              <img src="IMG_4018.jpg" alt="Small Image 3" class="small-image">
+            </a>
+            <a href="#" class="lightbox-trigger">
+              <img src="IMG_4028.jpg" alt="Small Image 4" class="small-image">
+            </a>
+          </div>
+        </div>
+        <div class="right-content">
+          <h1 class="section-title">FLØYEN</h1>
+          <p class="section-body">
+            Fløyen is the name of one of the seven mountains that surround Bergen, Norway—the city that
+            welcomed me to Northern Europe in 2017 during my first adventure away from my home country. This
+            photobook is a visual exploration of the magical and extraordinary landscapes of Scandinavia,
+            captured by me over seven years with my camera. The photographs feature scenes from Norway,
+            Sweden, Iceland, Denmark, and the Faroe Islands.
+
+            </br></br> The beauty of Scandinavia never ceases to amaze me. In a world where it often feels
+            like we’ve seen it all, discovering something that still leaves you in awe is a truly priceless
+            experience.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div id="section3" class="section">
+      <div class="section-content">
+        <!-- <h1 class="section-title">Section 3 Title</h1> -->
+        <p class="section-body"> LIMITED COPIES AVAILABLE.
+          </br>14 EURO/100 DKK + shipping (determined
+          below). Please fill out the order form and follow instructions for payment after submission.</p>
+        <form method="POST"
+          action="https://script.google.com/macros/s/AKfycbzf1HzLtv0eQOHrW9OjP-R0ATYokBj605M9145iW9W4aY4Y8GrOQ9lYJKc10SppPVAf/exec"
+          id="myForm" class="floating-form">
+
+          <input name="Name" type="text" placeholder="full name" required aria-label="Name" />
+
+          <input name="Email" type="email" placeholder="e-mail" required aria-label="Email" />
+
+          <input name="PhoneNumber" id="PhoneNumber" type="tel" aria-label="Phone Number" placeholder="phone number"
+            required />
+
+          <select name="PaymentType" id="PaymentType" required onchange="togglePaymentField()"
+            aria-label="Payment Type">
+            <option value="" disabled selected hidden>Where are you located?</option>
+            <option value="cph">i am located in copenhagen. i can pick up/meet.</option>
+            <option value="denmark">i am located in denmark.</option>
+            <option value="europe">i am located in europe.</option>
+            <option value="outside">i am not located in denmark or europe.</option>
+          </select>
+
+
+          <div id="paymentField" style="display: none">
+            <div id="formNote">The shipping cost will be BLANK.</div>
+          </div>
+
+          <div id="shippingAddressField">
+            <input name="Address" type="text" id="shippingAddressInput"
+              placeholder=" #street , city , country , zip code" aria-label="Shipping Address" />
+          </div>
+
+          <textarea name="Note" id="Note" placeholder="add a note... (optional)" aria-label="Note"></textarea>
+
+          <button type="submit" id="submitButton">send</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Lightbox Modal (Initially Hidden) -->
+    <div id="lightbox" class="lightbox-modal">
+      <span id="close-lightbox" class="close-lightbox">&times;</span>
+      <img id="lightbox-content" class="lightbox-content" src="" alt="Expanded View">
+    </div>
+  </div>
+
+  <!-- DONT TOUCH -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var phoneNumberInput = document.getElementById("PhoneNumber");
+      var iti = window.intlTelInput(phoneNumberInput, {
+        separateDialCode: true,
+        preferredCountries: ["dk", "es"],
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+      });
+
+      // Add an event listener for form submission
+      const yourForm = document.getElementById("myForm");
+      const submitButton = document.getElementById("submitButton");
+      const paymentTypeSelect = document.getElementById("PaymentType");
+      const addressField = document.getElementById("shippingAddressInput");
+
+      yourForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the form from submitting immediately
+
+        // Change button text and disable it to prevent double submission
+        submitButton.textContent = "Sending...";
+        submitButton.disabled = true;
+
+        // Get the dial code from intl-tel-input
+        const countryCode = iti.getSelectedCountryData().dialCode;
+
+        // Append the country code to the form data
+        const data = new FormData(yourForm);
+        data.append("CountryCode", "+" + countryCode);
+
+        // Check if "Cph" is selected and skip address validation
+        if (paymentTypeSelect.value === "cph") {
+          // If Copenhagen is selected, skip address validation
+          fetch(yourForm.action, {
+            method: "POST",
+            body: data,
+          })
+            .then(() => {
+              // Clear the form and reset the button
+              yourForm.reset();
+              submitButton.textContent = "Send";
+              submitButton.disabled = false;
+
+              // Redirect to thank you page
+              window.location.replace("/thankyou.html");
+            })
+            .catch(() => {
+              // Handle errors (e.g., network issues)
+              submitButton.textContent = "Send";
+              submitButton.disabled = false;
+            });
+        } else {
+          // For other options, validate the address
+          const address = addressField.value.trim();
+          const addressParts = address.split(',');
+
+          if (addressParts.length === 4) {
+            const street = addressParts[0].trim();
+            const city = addressParts[1].trim();
+            const country = addressParts[2].trim();
+            const postalCode = addressParts[3].trim();
+
+            // Log address for debugging (optional)
+            console.log(`Address Submitted: Street: ${street}, City: ${city}, Country: ${country}, Postal Code: ${postalCode}`);
+
+            // Proceed with form submission if address is valid
+            fetch(yourForm.action, {
+              method: "POST",
+              body: data,
+            })
+              .then(() => {
+                // Clear the form and reset the button
+                yourForm.reset();
+                submitButton.textContent = "send";
+                submitButton.disabled = false;
+
+                // Redirect to thank you page
+                window.location.replace("/thankyou.html");
+              })
+              .catch(() => {
+                // Handle errors (e.g., network issues)
+                submitButton.textContent = "send";
+                submitButton.disabled = false;
+              });
+          } else {
+            // If the address format is incorrect, show an alert and prevent submission
+            alert("Please enter the address in the format: Street, City, Country, Postal Code.");
+
+            // Re-enable the button and reset text
+            submitButton.textContent = "send";
+            submitButton.disabled = false; // Re-enable the submit button
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

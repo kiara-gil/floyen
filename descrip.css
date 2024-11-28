@@ -1,0 +1,112 @@
+/* Section 2 - General Content */
+#section2 {
+  scroll-snap-align: center;
+  padding-bottom: 2rem;
+  /* Add space below content for wiggle room */
+  overflow: auto;
+  /* Allows the section content to be fully scrollable if needed */
+}
+
+#section2 .section-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+
+/* Section 2 - Left Content */
+#section2 .left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 48%;
+}
+
+#section2 .left-content img {
+  width: 70%;
+  max-width: 450px;
+  height: auto;
+}
+
+#section2 .left-content .small-images {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#section2 .left-content .small-images img {
+  /* width: 23%; */
+  height: auto;
+}
+
+/* Section 2 - Right Content */
+#section2 .right-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 48%;
+  gap: 1rem;
+  text-align: justify;
+}
+
+/* Section 2 - Title and Body */
+#section2 .section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: bold;
+  /* color: #123456; */
+}
+
+#section2 .section-body {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  /* Unified responsive font size */
+}
+
+/* Section 2 - Mobile Styles */
+@media (max-width: 768px) {
+  #section2 .section-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3rem;
+  }
+
+  #section2 .left-content {
+    width: 100%;
+    gap: 1.5rem;
+  }
+
+  #section2 .left-content img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+
+  #section2 .left-content .small-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .8rem;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #section2 .left-content .small-images img {
+    width: 100%;
+    height: auto;
+  }
+
+  #section2 .right-content {
+    width: 100%;
+    gap: 1rem;
+    text-align: justify;
+  }
+
+  #section2 .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  #section2 .section-body {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+  }
+}

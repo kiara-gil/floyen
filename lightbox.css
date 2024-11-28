@@ -1,0 +1,43 @@
+/* Lightbox modal (hidden by default) */
+.lightbox-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  z-index: 9999; /* Ensure it stays on top */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* The content inside the lightbox */
+.lightbox-content {
+  max-width: 90%; /* Limit the image size */
+  max-height: 90%; /* Limit the image height */
+  object-fit: contain; /* Ensure the image fits within the container */
+}
+
+/* Close button for the lightbox */
+.close-lightbox {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Image container styling for small images */
+
+.small-image {
+  width: 100px; /* Small image size */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.small-image:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+}

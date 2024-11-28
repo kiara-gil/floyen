@@ -1,0 +1,134 @@
+#section3 .section-content {
+    margin-bottom: unset;
+}
+
+/* Section Body Above the Form */
+#section3 .section-body {
+    font-size: clamp(1rem, 2vh, 1.125rem); /* Using vh for responsive scaling */
+    margin-bottom: 1rem;
+    margin-top: 0;
+    width: 60%;
+}
+
+/* Section 3 Form Styles */
+.floating-form {
+    width: 90%;
+    max-width: 600px;
+    background-color: transparent;
+    border-radius: 25px;
+    margin: .8rem auto;
+}
+
+/* Input, select, and textarea styles */
+.floating-form input,
+.floating-form select,
+.floating-form textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border-radius: 50px;
+    background-color: transparent;
+    border: 2px solid #0d47a1;
+    margin-bottom: 1.1rem;
+    font-size: clamp(0.9rem, 2vh, 1.125rem); /* Only vh used in middle argument */
+    color: #0d47a1;
+    box-sizing: border-box;
+}
+
+/* Custom select styling */
+.floating-form select {
+    appearance: none;
+    padding-right: 1.5rem;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%230d47a1"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 15px center;
+    background-size: 1.375rem;
+}
+
+/* Placeholder text styling */
+.floating-form ::placeholder {
+    font-family: 'Poppins', sans-serif;
+    color: #5186c2;
+}
+
+/* Input, textarea, and select focus state */
+.floating-form input:focus,
+.floating-form textarea:focus,
+.floating-form select:focus {
+    border: 2px solid #2d8ff0;
+    outline: none;
+}
+
+/* Button styling */
+.floating-form button {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0d47a1;
+    border-radius: 25px;
+    margin: 0.5rem 0;
+    padding: 0.75rem 1.25rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: clamp(1rem, 2vh, 1.125rem); /* Only vh used in middle argument */
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Button hover effect */
+.floating-form button:hover {
+    background-color: #2d8ff0;
+}
+
+/* Form Note Styling */
+#formNote {
+    font-size: clamp(0.75rem, 1.8vh, 3rem);
+    font-style: italic;
+    margin: 0.75rem 0 1.25rem;
+    text-align: center;
+    max-width: 75%;
+    padding: 0.5rem;
+    word-wrap: break-word;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+option {
+   font-family: 'Poppins', Arial, sans-serif !important;
+}
+
+select {
+    font-family: 'Poppins', Arial, sans-serif !important;
+}
+
+/* Responsive Styles for Mobile (below 768px) */
+@media (max-width: 768px) {
+    .floating-form {
+        margin-top: 0rem;
+        width: 100%;
+        max-width: 475px;
+    }
+
+    #section3 .section-content{
+        padding: 0 1rem 8rem;
+    }
+
+    #section3 .section-body {
+        font-size: clamp(0.75rem, 1.8vh, 1.125rem); /* Adjusted for consistency */
+        margin-bottom: 0rem;
+        width: 100%;
+    }
+
+    .floating-form input,
+    .floating-form select,
+    .floating-form textarea {
+        padding: 0.55rem 1rem;
+        font-size: clamp(0.75rem, .3vh, 1.125rem);
+        margin-bottom: 0.8rem;
+    }
+
+    #formNote {
+        font-size: clamp(0.75rem, 1vh, 1rem); /* Adjusted for consistency */
+        max-width: 100%;
+        padding: 0.1rem;
+    }
+
+    
+}

@@ -1,0 +1,45 @@
+/* Ensure the container takes full width */
+.iti {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.iti .iti__selected-dial-code {
+  border-radius: 25px; /* Rounded edges */
+  color: #0d47a1; /* Blue color for the country code */
+}
+
+.iti__input {
+  padding-left: 50px; /* Space for the dial code */
+  border-radius: 25px;
+}
+
+/* Adjust select dropdown and arrow styling */
+select {
+  appearance: none;
+  padding-right: 35px; /* Adjust space for the arrow */
+  border-radius: 25px; /* Rounded edges */
+}
+
+/* Adjust the appearance of the dropdown arrow */
+.iti__arrow {
+  border-color: #0d47a1; /* Blue color for the arrow */
+}
+
+/* Adjust the flag's appearance */
+.iti__selected-flag {
+  border-radius: 25px;
+  padding: 5px;
+}
+
+/* On mobile, make the dropdown smaller */
+@media (max-width: 768px) {
+  /* Adjust the size of the dropdown select menu */
+  .iti select {
+    font-size: 0.9rem; /* Smaller font size for better visibility */
+    height: 30px; /* Smaller height for the dropdown */
+    width: 70%; /* Adjust the width of the select input on mobile */
+  }
+
+
+}
