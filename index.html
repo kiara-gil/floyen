@@ -132,101 +132,133 @@
   </div>
 
   <!-- DONT TOUCH -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var phoneNumberInput = document.getElementById("PhoneNumber");
-      var iti = window.intlTelInput(phoneNumberInput, {
-        separateDialCode: true,
-        preferredCountries: ["dk", "es"],
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-      });
+<script>document.addEventListener("DOMContentLoaded", function () {
+  var phoneNumberInput = document.getElementById("PhoneNumber");
+  var iti = window.intlTelInput(phoneNumberInput, {
+    separateDialCode: true,
+    preferredCountries: ["dk", "es"],
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  });
 
-      // Add an event listener for form submission
-      const yourForm = document.getElementById("myForm");
-      const submitButton = document.getElementById("submitButton");
-      const paymentTypeSelect = document.getElementById("PaymentType");
-      const addressField = document.getElementById("shippingAddressInput");
+  const paymentTypeSelect = document.getElementById("PaymentType");
+  const paymentField = document.getElementById("paymentField");
+  const formNote = document.getElementById("formNote");
+  const addressField = document.getElementById("shippingAddressInput");
 
-      yourForm.addEventListener("submit", function (e) {
-        e.preventDefault(); // Prevent the form from submitting immediately
+  // Function to toggle the visibility and update footnotes
+  function togglePaymentField() {
+    const selectedOption = paymentTypeSelect.value;
 
-        // Change button text and disable it to prevent double submission
-        submitButton.textContent = "Sending...";
-        submitButton.disabled = true;
+    // Show the payment field and adjust form note based on the selected payment option
+    if (selectedOption === "cph") {
+      paymentField.style.display = "block";
+      formNote.textContent = "Please include some suggestions for meet-up points/times in the notes.";
 
-        // Get the dial code from intl-tel-input
-        const countryCode = iti.getSelectedCountryData().dialCode;
+      // Remove the 'required' attribute for the address field for Copenhagen
+      addressField.removeAttribute('required');
+      addressField.value = ""; // Optionally clear the address input if Copenhagen is selected
 
-        // Append the country code to the form data
-        const data = new FormData(yourForm);
-        data.append("CountryCode", "+" + countryCode);
+    } else if (selectedOption === "denmark" || selectedOption === "europe" || selectedOption === "outside") {
+      paymentField.style.display = "block";
 
-        // Check if "Cph" is selected and skip address validation
-        if (paymentTypeSelect.value === "cph") {
-          // If Copenhagen is selected, skip address validation
-          fetch(yourForm.action, {
-            method: "POST",
-            body: data,
-          })
-            .then(() => {
-              // Clear the form and reset the button
-              yourForm.reset();
-              submitButton.textContent = "Send";
-              submitButton.disabled = false;
+      if (selectedOption === "denmark") {
+        formNote.textContent = "The shipping cost will be 25DKK and will be delivered within 5 working days.";
+      } else if (selectedOption === "europe") {
+        formNote.textContent = "The shipping cost will be 6,5 EUROS and it will be delivered within 5-10 working days.";
+      } else if (selectedOption === "outside") {
+        formNote.textContent = "At this time, FLØYEN is only available in Europe.";
+      }
 
-              // Redirect to thank you page
-              window.location.replace("/thankyou.html");
-            })
-            .catch(() => {
-              // Handle errors (e.g., network issues)
-              submitButton.textContent = "Send";
-              submitButton.disabled = false;
-            });
-        } else {
-          // For other options, validate the address
-          const address = addressField.value.trim();
-          const addressParts = address.split(',');
+      // Make the address field required for all other options (except Copenhagen)
+      addressField.setAttribute('required', 'true');
+    } else {
+      paymentField.style.display = "none"; // Hide the payment field if no valid option is selected
+      addressField.setAttribute('required', 'true'); // Keep address required if no valid option is selected
+    }
+  }
 
-          if (addressParts.length === 4) {
-            const street = addressParts[0].trim();
-            const city = addressParts[1].trim();
-            const country = addressParts[2].trim();
-            const postalCode = addressParts[3].trim();
+  // Initialize the change event listener on the select element
+  paymentTypeSelect.addEventListener("change", togglePaymentField);
 
-            // Log address for debugging (optional)
-            console.log(`Address Submitted: Street: ${street}, City: ${city}, Country: ${country}, Postal Code: ${postalCode}`);
+  // Initialize the form submission handling
+  const yourForm = document.getElementById("myForm");
+  const submitButton = document.getElementById("submitButton");
 
-            // Proceed with form submission if address is valid
-            fetch(yourForm.action, {
-              method: "POST",
-              body: data,
-            })
-              .then(() => {
-                // Clear the form and reset the button
-                yourForm.reset();
-                submitButton.textContent = "send";
-                submitButton.disabled = false;
+  yourForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent the form from submitting immediately
 
-                // Redirect to thank you page
-                window.location.replace("/thankyou.html");
-              })
-              .catch(() => {
-                // Handle errors (e.g., network issues)
-                submitButton.textContent = "send";
-                submitButton.disabled = false;
-              });
-          } else {
-            // If the address format is incorrect, show an alert and prevent submission
-            alert("Please enter the address in the format: Street, City, Country, Postal Code.");
+    // Change button text and disable it to prevent double submission
+    submitButton.textContent = "Sending...";
+    submitButton.disabled = true;
 
-            // Re-enable the button and reset text
-            submitButton.textContent = "send";
-            submitButton.disabled = false; // Re-enable the submit button
-          }
-        }
-      });
-    });
-  </script>
+    // Get the dial code from intl-tel-input
+    const countryCode = iti.getSelectedCountryData().dialCode;
+
+    // Append the country code to the form data
+    const data = new FormData(yourForm);
+    data.append("CountryCode", "+" + countryCode);
+
+    // Address validation
+    const address = addressField.value.trim();
+    const addressParts = address.split(',');
+
+    if (paymentTypeSelect.value === "cph") {
+      // No address validation needed for "Cph"
+      fetch(yourForm.action, {
+        method: "POST",
+        body: data,
+      })
+        .then(() => {
+          // Clear the form and reset the button
+          yourForm.reset();
+          submitButton.textContent = "Send";
+          submitButton.disabled = false;
+
+          // Redirect to thank you page
+          window.location.replace("/thankyou.html");
+        })
+        .catch(() => {
+          submitButton.textContent = "Send";
+          submitButton.disabled = false;
+        });
+
+    } else if (addressParts.length === 4) {
+      const street = addressParts[0].trim();
+      const city = addressParts[1].trim();
+      const country = addressParts[2].trim();
+      const postalCode = addressParts[3].trim();
+
+      // Log address for debugging (optional)
+      console.log(`Address Submitted: Street: ${street}, City: ${city}, Country: ${country}, Postal Code: ${postalCode}`);
+
+      // Proceed with form submission if address is valid
+      fetch(yourForm.action, {
+        method: "POST",
+        body: data,
+      })
+        .then(() => {
+          yourForm.reset();
+          submitButton.textContent = "Send";
+          submitButton.disabled = false;
+
+          window.location.replace("/thankyou.html");
+        })
+        .catch(() => {
+          submitButton.textContent = "Send";
+          submitButton.disabled = false;
+        });
+    } else {
+      // If the address format is incorrect, show an alert and prevent submission
+      alert("Please enter the address in the format: Street, City, Country, Postal Code.");
+      submitButton.textContent = "Send";
+      submitButton.disabled = false; // Re-enable the submit button
+    }
+  });
+
+  // Trigger the toggle on page load in case there's a preset value in the select field
+  togglePaymentField();
+});
+</script>
 </body>
 
 </html>
