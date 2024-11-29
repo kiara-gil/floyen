@@ -32,6 +32,7 @@
     <img src="bottomblob.svg" alt="Bottom Left Image" />
   </div>
   <div class="snap-container">
+<!--Section 1: TITLE PAGE -->
     <div id="section1" class="section">
       <div class="section-content">
         <h1 class="section-title">FLØYEN</h1>
@@ -43,9 +44,10 @@
     </div>
 
 
-    <!-- Section 2: Gallery or Images -->
+    <!-- Section 2: Gallery and Description -->
     <section id="section2" class="section tall">
       <div class="section-content">
+    <!--IMAGES -->
         <div class="left-content">
           <img src="mockup1.png" alt="Large Image" class="large-image">
           <div class="small-images">
@@ -63,6 +65,7 @@
             </a>
           </div>
         </div>
+    <!-- DESCRIPTION -->
         <div class="right-content">
           <h1 class="section-title">FLØYEN</h1>
           <p class="section-body">
@@ -79,13 +82,14 @@
         </div>
       </div>
     </section>
-
+<!-- Section 3: Form -->
     <div id="section3" class="section">
       <div class="section-content">
-        <!-- <h1 class="section-title">Section 3 Title</h1> -->
+        <!-- Form Instructions -->
         <p class="section-body"> LIMITED COPIES AVAILABLE.
-          </br>14 EURO/100 DKK + shipping (determined
-          below). Please fill out the order form and follow instructions for payment after submission.</p>
+          </br>14 EURO/100 DKK + shipping (determined <!-- </br> starts a new line -->
+          below). Please fill out the order form and follow instructions for payment after submission.</p> <!-- keep the </p> or code breaks -->
+        <!-- Form -->
         <form method="POST"
           action="https://script.google.com/macros/s/AKfycbzf1HzLtv0eQOHrW9OjP-R0ATYokBj605M9145iW9W4aY4Y8GrOQ9lYJKc10SppPVAf/exec"
           id="myForm" class="floating-form">
@@ -124,7 +128,7 @@
 
     </div>
 
-    <!-- Lightbox Modal (Initially Hidden) -->
+      <!-- DONT TOUCH -->
     <div id="lightbox" class="lightbox-modal">
       <span id="close-lightbox" class="close-lightbox">&times;</span>
       <img id="lightbox-content" class="lightbox-content" src="" alt="Expanded View">
@@ -132,7 +136,8 @@
   </div>
 
   <!-- DONT TOUCH -->
-<script>document.addEventListener("DOMContentLoaded", function () {
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
   var phoneNumberInput = document.getElementById("PhoneNumber");
   var iti = window.intlTelInput(phoneNumberInput, {
     separateDialCode: true,
